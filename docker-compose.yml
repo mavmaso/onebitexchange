@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  postgres:
+    container_name: db-obe
+    hostname: db-obe
+    image: "postgres:9.5"
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+  app:
+    container_name: onebitexchange
+    hostname: onebitexchange
+    depends_on:
+      - "postgres"
+    build: .
+    command: bash start.sh
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/onebitexchange
+      - gems:/gems
+ 
+
+volumes:
+  postgres:
+  gems:
