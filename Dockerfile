@@ -11,7 +11,7 @@ nodejs yarn build-essential libpq-dev imagemagick git-all nano
 
 
 # Seta nosso path
-ENV INSTALL_PATH /onebitexchange
+ENV INSTALL_PATH /fonte
 
 # Cria nosso diretório
 RUN mkdir -p $INSTALL_PATH
