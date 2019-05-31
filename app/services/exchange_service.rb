@@ -21,9 +21,7 @@ class ExchangeService
         value * @amount
       else
         url = "#{@exchange_api_url}?token=#{@exchange_api_key}&currency=#{@source_currency}/#{@target_currency}"
-        p url
         res = RestClient.get url
-        p = JSON.parse(res)
         value = JSON.parse(res.body)['currency'][0]['value'].to_f
         value * @amount
       end
